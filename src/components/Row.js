@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../api/axios';
-import MovieModal from '../components/movieModal/MovieModal';
+import MovieModal from './movieModal/MovieModal';
 import { Swiper, SwiperSlide } from "swiper/react";
-import '../components/Row.css';
+import './Row.css';
 // Import Swiper styles
 import "swiper/css";
 

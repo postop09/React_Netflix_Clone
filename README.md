@@ -1,11 +1,11 @@
 # React_Netflix_Clone
 ## 1. 프로젝트 주제와 기능
 ### 1.1 프로젝트 주제
-넷플릭스 페이지 클론
+넷플릭스 페이지 클론으로, 카테고리에 따른 영화 분류와 선택한 영화의 정보를 볼 수 있다.
 
 ### 1.2 핵심 기능
 - SPA
-- Movie API 호출
+- REST API
 - 영화 검색
 
 ## 2. 빌드 및 실행방법
@@ -80,5 +80,66 @@ useEffect(() => {
 ```
 
 #### 4.5.3 `react-router-dom`
+동적 라우팅을 가능하게 함으로써, 컴포넌트 기반의 라우팅을 용이하게 해준다.
 
-#### 4.5.4 props와 components
+즉, 새로운 컴포넌트로의 라우팅/탐색을 하고 랜더링하는데 도움을 준다.
+
+(라우팅: 통신을 위한 최적의 경로를 선택하는 과정, URL에 따라서 그에 상응하는 화면을 전송해주는 것)
+
+**4.5.3.1 `Routes`와 `Route`**
+
+`Route`는 주소창의 경로와 매치되는 컴포넌트를 설정하기 위해 사용한다.
+```js
+<Route path=':movieId' element={<DetailPage />} />
+```
+- `path`는 주소창의 경로
+- `element`는 출력할 컴포넌트
+
+`Routes`는 여러개의 `Route`를 감싸주는 컨테이너 역할을 하고, 자식 컴포넌트의 첫번째 Route를 랜더링 한다.
+```js
+<Routes>
+    <Route path='/' element={<MainPage />} />
+    <Route path=':movieId' element={<DetailPage />} />
+    <Route path='search' element={<SearchPage />} />
+</Routes>
+```
+- 경로가 슬래시(`/`)인 경우, 가장 먼저 랜더링 된다.
+
+**4.5.3.2 중첩된 Route와 `Outlet`**
+
+중첩된 Route는 공통적인 Layout 코드를 보다 깔끔하게 사용할 수 있게 만들어준다.
+
+그에 맞게, 자식 경로의 요소를 랜더링하기 위해서는 `<Outlet />`을 사용해야 한다.
+```js
+// Outlet을 이용한 Layout 정의
+const Layout  = () => {
+  return (
+    <div>
+      <Nav />
+      <Outlet />
+      <Footer />
+    </div>
+  )
+}
+// 공통적인 Layout 적용
+function App() {
+  return (
+    <div>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<MainPage />} />
+          <Route path=':movieId' element={<DetailPage />} />
+          <Route path='search' element={<SearchPage />} />
+        </Route>
+      </Routes>
+    </div>
+  );
+}
+```
+
+**4.5.3.3 `useNavigate`로 경로 이동**
+```js
+const navigate = useNavigate();
+
+navigate(`/${searchedMovie.id}`);
+```

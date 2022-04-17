@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../api/axios';
 import MovieModal from './movieModal/MovieModal';
-import { Swiper, SwiperSlide } from "swiper/react";
 import './Row.css';
 // Import Swiper styles
 import "swiper/css";
@@ -33,9 +32,9 @@ export default function Row({title, id, url, largeRow}) {
         <button type='button' onClick={() => {document.getElementById(id).scrollLeft -= window.innerWidth - 80}} className='btn_left'>
           <img src={require('../img/icon_left_arrow.png')} alt='' className='img_arrow img_left' />
         </button>
-          <Swiper id={id} className={`wrap_contents ${largeRow && 'wrap_poster'}`} slidesPerView={6}>
+          <div id={id} className={`wrap_contents ${largeRow && 'wrap_poster'}`}>
           {movies.map((movie) => (
-            <SwiperSlide key={movie.id}>
+            <div key={movie.id}>
             <img
               key={movie.id}
               src={`https://image.tmdb.org/t/p/original/${largeRow ? movie.poster_path : movie.backdrop_path}`}
@@ -43,9 +42,9 @@ export default function Row({title, id, url, largeRow}) {
               onClick={() => modalMovieOpen(movie)}
               className={`img_backDrop ${largeRow && 'img_poster'}`}
               />
-            </SwiperSlide>
+            </div>
           ))}
-          </Swiper>
+          </div>
         <button type='button' onClick={() => {document.getElementById(id).scrollLeft += window.innerWidth - 80}} className='btn_right'>
           <img src={require('../img/icon_right_arrow.png')} alt='' className='img_arrow img_right' />
         </button>

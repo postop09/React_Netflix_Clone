@@ -40,3 +40,12 @@
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
 }
+
+@media screen and (max-width: 420px) {
+  .list_nav .item_search {
+    margin: 0 10px 0 auto;
+  }
+  .list_nav .inp_search {
+    width: 170px;
+  }
+}

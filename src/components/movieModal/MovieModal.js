@@ -23,7 +23,7 @@ export default function MovieModal({id, backdrop_path, first_air_date, release_d
             <ModalTxtDate>출시일: {first_air_date || release_date || '정보 없음'}</ModalTxtDate>
             <ModalTxtTitle>{name || title}</ModalTxtTitle>
             <ModalTxtVote>평점: {vote_average}</ModalTxtVote>
-            {overview || '설명 정보 없음'}
+            {overview || '해당 영상의 정보가 없습니다.'}
           </ModalWrapTxt>
           <ModalListBtn>
             <li>
@@ -78,6 +78,11 @@ const ModalWrapTxt = styled.p`
   padding: 20px;
   font-size: 18px;
   color: rgb(200, 200, 200);
+
+  @media screen and (max-width: 420px) {
+    
+    font-size: 14px;
+  }
 `
 const ModalTxtDate = styled.small`
   display: block;

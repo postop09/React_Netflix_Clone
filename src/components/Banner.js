@@ -7,22 +7,17 @@ import './Banner.css';
 export default function Banner() {
   const [movie, setMovie] = useState([]);
   const fetchData = async () => {
-    // 현재 상영중인 영화
     const req = await axios.get(requests.fetchNowPlaying);
-    // console.log(req.data.results);
-    // 영화 id값 무작위 추출
     const movieId = req.data.results[
       Math.floor(Math.random() * req.data.results.length)
     ].id
-    console.log(movieId);
-    // id값에 해당하는 영화 정보 추출
     const movieDetail = await axios.get(`movie/${movieId}`, {
       params: {append_to_response: 'videos'},
     })
-    // console.log(movieDetail.data);
+
     setMovie(movieDetail.data);
-    // console.log(movie);
   }
+
   useEffect(() => {
     fetchData();
   },[]);
@@ -50,6 +45,10 @@ export default function Banner() {
     return (
       <Container>
         <HomeContainer>
+          {movie.videos.results.length === 0 ? 
+          <NonIframe>
+            <NonIframeTxt>해당하는 영화의 영상 정보가 없습니다.</NonIframeTxt>
+          </NonIframe> :
           <Iframe
             src={`https://www.youtube.com/embed/${movie.videos.results[0].key}?controls=0&autoplay=1&loop=1&mute=1&playList=${movie.videos.results[0].key}`}
             width='640'
@@ -57,12 +56,28 @@ export default function Banner() {
             title='Youtube Video Player'
             allow='autoplay; fullscreen'
           ></Iframe>
+          }
         </HomeContainer>
       </Container>
     )
   }
 }
 // movie.videos.results.length = 0 인 경우
+const NonIframe = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #111;
+`
+const NonIframeTxt = styled.strong`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  color: #5e5e5e;
+`
+
 const Iframe = styled.iframe`
   border: none;
   width: 100%;

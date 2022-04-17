@@ -30,7 +30,7 @@ export default function Nav() {
       <nav>
         <ul className='list_nav'>
           <li>
-            <a href='http://localhost:3000/'>
+            <a href='https://localhost:3000/react_netflix_clone'>
               <img
                 src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/800px-Netflix_2015_logo.svg.png'
                 alt='넷플릭스 로고, 클릭 시 콘텐츠 메인페이지로 이동 및 콘텐츠 새로고침'

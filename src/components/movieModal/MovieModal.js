@@ -71,7 +71,7 @@ const ModalImgMovie = styled.img`
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   width: 100%;
-  max-height: 55vh;
+  max-height: 45vh;
   object-fit: cover;
 `
 const ModalWrapTxt = styled.p`

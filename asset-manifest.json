@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react_netflix_clone/static/css/main.91c75420.css",
-    "main.js": "/react_netflix_clone/static/js/main.cd63d190.js",
+    "main.css": "/react_netflix_clone/static/css/main.5b37d41a.css",
+    "main.js": "/react_netflix_clone/static/js/main.24e9f0eb.js",
     "static/js/787.1f22093f.chunk.js": "/react_netflix_clone/static/js/787.1f22093f.chunk.js",
     "static/media/AppleSDGothicNeoB.ttf": "/react_netflix_clone/static/media/AppleSDGothicNeoB.4175a777557557f7d294.ttf",
     "static/media/img_user.png": "/react_netflix_clone/static/media/img_user.155a0740b016414e192f.png",
     "index.html": "/react_netflix_clone/index.html",
-    "main.91c75420.css.map": "/react_netflix_clone/static/css/main.91c75420.css.map",
-    "main.cd63d190.js.map": "/react_netflix_clone/static/js/main.cd63d190.js.map",
+    "main.5b37d41a.css.map": "/react_netflix_clone/static/css/main.5b37d41a.css.map",
+    "main.24e9f0eb.js.map": "/react_netflix_clone/static/js/main.24e9f0eb.js.map",
     "787.1f22093f.chunk.js.map": "/react_netflix_clone/static/js/787.1f22093f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.91c75420.css",
-    "static/js/main.cd63d190.js"
+    "static/css/main.5b37d41a.css",
+    "static/js/main.24e9f0eb.js"
   ]
 }
